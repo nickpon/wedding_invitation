@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      window.scrollTo(0, 0);
+    </script>
+    <meta name="description" content="Приглашение на свадьбу Коли и Поли" />
+    <title>Свадьба Коли и Поли</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Nunito:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="intro-locked">
+    <!-- Envelope intro -->
+    <div id="envelope-intro" class="envelope-intro" aria-label="Открыть приглашение">
+      <div class="envelope-intro__inner">
+        <div class="envelope-art">
+          <img class="envelope-art__flap envelope-art__flap--bottom" src="/assets/envelope/flap-bottom.svg" alt="" />
+          <img class="envelope-art__side envelope-art__side--left" src="/assets/envelope/side-left.svg" alt="" />
+          <img class="envelope-art__side envelope-art__side--right" src="/assets/envelope/side-right.svg" alt="" />
+          <img class="envelope-art__flap envelope-art__flap--top" src="/assets/envelope/flap-top.svg" alt="" />
+
+          <p class="envelope-art__heading">Приглашаем на нашу свадьбу</p>
+
+          <div class="envelope-art__seal">
+            <img class="envelope-art__seal-wax" src="/assets/envelope/seal-wax.png" alt="" />
+            <span class="envelope-art__seal-label" aria-hidden="true">
+              <span>открыть</span>
+              <span>здесь</span>
+            </span>
+            <button type="button" class="envelope-art__hit" id="envelope-seal" aria-label="Открыть приглашение"></button>
+          </div>
+
+          <div class="envelope-art__footer">
+            <span class="envelope-art__love">with love,</span>
+            <span class="envelope-art__names">Коля &amp; Поля</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero / animation scene -->
+    <section id="hero">
+      <div class="hero-stage">
+        <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+        <div class="glasses-wrap">
+          <div class="glass glass--left" id="glass-left" aria-hidden="true"></div>
+          <div class="glass glass--right" id="glass-right" aria-hidden="true"></div>
+          <div class="splash" id="splash" aria-hidden="true"></div>
+        </div>
+        <div class="hero-title" id="hero-title">
+          <p class="hero-title__eyebrow">Мы женимся</p>
+          <h1 class="hero-title__main">Свадьба<br /><span>Коли и Поли</span></h1>
+
+          <div class="datemark" aria-label="8 августа 2026 года, суббота">
+            <span class="datemark__rule"></span>
+            <div class="datemark__panel">
+              <div class="datemark__plaques">
+                <div class="datemark__plaque"><span>08</span></div>
+                <span class="datemark__bridge" aria-hidden="true"></span>
+                <div class="datemark__plaque"><span>08</span></div>
+              </div>
+              <p class="datemark__meta">
+                <span class="datemark__month">августа</span>
+                <span class="datemark__year">2026</span>
+              </p>
+            </div>
+            <span class="datemark__rule"></span>
+          </div>
+          <p class="datemark__caption">суббота&nbsp;&middot;&nbsp;Москва</p>
+        </div>
+        <div class="scroll-hint" id="scroll-hint" aria-hidden="true">
+          <span>Листайте вниз</span>
+          <span class="scroll-hint__arrow"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wedding schedule -->
+    <section id="schedule" class="schedule">
+      <div class="schedule__inner">
+        <h2 class="section-title">Программа дня</h2>
+        <p class="section-subtitle">
+          Мы будем счастливы разделить этот день с вами
+        </p>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
+
+    <!-- Venue -->
+    <section id="venue" class="venue">
+      <div class="venue__inner">
+        <h2 class="section-title">Место торжества</h2>
+        <p class="section-subtitle">Банкетный зал «Кедр» &middot; UspenSKY</p>
+
+        <div class="venue__grid">
+          <div class="venue__info">
+            <div class="venue__card js-reveal">
+              <span class="venue__label">Адрес</span>
+              <p class="venue__address">
+                Московская область, Одинцовский г.о.,<br />
+                1-е Успенское шоссе, 8-й км
+              </p>
+            </div>
+
+            <div class="venue__card js-reveal">
+              <span class="venue__label">Как добраться</span>
+              <ul class="venue__list">
+                <li>На автомобиле — около 30 минут от центра Москвы по Рублёво-Успенскому шоссе.</li>
+                <li>На территории есть охраняемая парковка для гостей.</li>
+                <li>Координаты для навигатора: 55.700451, 37.116124</li>
+              </ul>
+            </div>
+
+            <a
+              class="venue__link js-reveal"
+              href="https://yandex.ru/maps/?rtext=~55.700451%2C37.116124&rtt=auto"
+              target="_blank"
+              rel="noopener"
+            >
+              Построить маршрут в Яндекс&nbsp;Картах
+            </a>
+          </div>
+
+          <div class="venue__map js-reveal">
+            <iframe
+              title="Как добраться до банкетного зала «Кедр»"
+              src="https://yandex.ru/map-widget/v1/?ll=37.116124%2C55.700451&z=15&pt=37.116124%2C55.700451%2Cpm2rdm"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dress code -->
+    <section id="dress-code" class="dress-code">
+      <div class="dress-code__inner">
+        <h2 class="section-title">Дресс-код</h2>
+        <p class="section-subtitle">Нежная палитра нашего дня</p>
+
+        <p class="dress-code__intro js-reveal">
+          Мы с большой нежностью просим вас поддержать атмосферу праздника в выбранных оттенках.
+          Ваше присутствие — уже самый ценный подарок, а гармония в нарядах сделает этот день ещё более волшебным.
+        </p>
+
+        <div class="dress-code__layout">
+          <div class="dress-code__content">
+            <div class="dress-code__note dress-code__note--ladies js-reveal">
+              <span class="dress-code__tag">Для прекрасных дам</span>
+              <p>
+                Мы будем искренне рады, если вы выберете платье в цветах нашей палитры.
+                Особенно просим по возможности <span class="dress-code__highlight">не выбирать белый наряд</span> —
+                в этот день мы хотели бы, чтобы он остался символом только невесты.
+              </p>
+            </div>
+
+            <div class="dress-code__palette js-reveal" id="dress-palette" aria-label="Рекомендуемые оттенки"></div>
+
+            <div class="dress-code__note dress-code__note--gentlemen js-reveal">
+              <span class="dress-code__tag">Для джентльменов</span>
+              <p>
+                Будем признательны за классический костюм или элегантный комплект — пиджак не обязателен.
+                Цвет — на ваш вкус; мы будем благодарны, если образ останется
+                <span class="dress-code__highlight">лаконичным и уместным для торжественного дня</span>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gifts -->
+    <section id="gifts" class="gifts">
+      <div class="gifts__inner">
+        <h2 class="section-title">О подарках</h2>
+        <p class="section-subtitle">Самое дорогое для нас — ваше присутствие</p>
+
+        <div class="gifts__card js-reveal">
+          <p class="gifts__text">
+            Мы будем безмерно счастливы разделить этот день с вами — для нас это уже самый ценный и трогательный подарок.
+          </p>
+          <p class="gifts__text">
+            Если вы захотите нас порадовать, мы будем искренне признательны и глубоко тронуты денежным вкладом:
+            он поможет нам бережно начать нашу совместную жизнь и воплотить заветные планы с особой заботой.
+          </p>
+          <p class="gifts__closing">С любовью и благодарностью заранее,<br />Коля и Поля</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp" class="rsvp">
+      <div class="rsvp__inner">
+        <h2 class="section-title">Подтвердите присутствие</h2>
+        <p class="section-subtitle">
+          Будем рады получить ваш ответ до&nbsp;<strong>01.07.2026</strong>
+        </p>
+        <p class="rsvp__deadline">
+          Пожалуйста, заполните короткую анкету — так мы подготовим банкет с заботой о каждом госте.
+        </p>
+
+        <form id="rsvp-form" class="rsvp__form js-reveal" novalidate>
+          <fieldset class="rsvp__group">
+            <legend class="rsvp__legend">Вы придёте на свадьбу?</legend>
+            <div class="rsvp__row rsvp__row--attend">
+              <label class="rsvp__chip rsvp__chip--radio">
+                <input type="radio" name="attending" value="yes" checked required />
+                <span>Да, с радостью!</span>
+              </label>
+              <label class="rsvp__chip rsvp__chip--radio">
+                <input type="radio" name="attending" value="no" required />
+                <span>К сожалению, не смогу</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="rsvp__field">
+            <label class="rsvp__label" for="rsvp-name">Ваше имя и фамилия</label>
+            <input
+              class="rsvp__input"
+              type="text"
+              id="rsvp-name"
+              name="name"
+              required
+              autocomplete="name"
+              placeholder="Например, Анна Иванова"
+            />
+          </div>
+
+          <div class="rsvp__details">
+            <fieldset class="rsvp__group">
+              <legend class="rsvp__legend">Предпочитаемые напитки</legend>
+              <p class="rsvp__hint">Можно выбрать несколько вариантов</p>
+              <div class="rsvp__chips" id="rsvp-drinks"></div>
+            </fieldset>
+
+            <fieldset class="rsvp__group">
+              <legend class="rsvp__legend">Основное блюдо</legend>
+              <div class="rsvp__chips rsvp__chips--meal" id="rsvp-meals"></div>
+            </fieldset>
+
+            <div class="rsvp__field">
+              <label class="rsvp__label" for="rsvp-allergies">Аллергии или ограничения в питании</label>
+              <input
+                class="rsvp__input"
+                type="text"
+                id="rsvp-allergies"
+                name="allergies"
+                placeholder="Необязательно"
+              />
+            </div>
+
+            <div class="rsvp__field">
+              <label class="rsvp__label" for="rsvp-comment">Пожелания для молодожёнов</label>
+              <textarea
+                class="rsvp__input rsvp__textarea"
+                id="rsvp-comment"
+                name="comment"
+                rows="3"
+                placeholder="Тёплые слова, музыкальные предпочтения…"
+              ></textarea>
+            </div>
+          </div>
+
+          <p id="rsvp-status" class="rsvp__status" role="status" aria-live="polite"></p>
+
+          <button type="submit" class="rsvp__submit" id="rsvp-submit">
+            Отправить ответ
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__ornament" aria-hidden="true"></div>
+      <p class="footer__line">Ждём вас с нетерпением!</p>
+
+      <p class="footer__date" aria-label="8 августа 2026">08&nbsp;&middot;&nbsp;08&nbsp;&middot;&nbsp;26</p>
+
+      <p class="footer__sign">Коля &amp; Поля</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
