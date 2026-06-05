@@ -220,7 +220,7 @@ body.intro-locked {
 .envelope-art__flourish {
   display: block;
   width: 38%;
-  height: 1px;
+  height: 0.5px;
   background: linear-gradient(
     to right,
     transparent,
