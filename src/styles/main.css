@@ -53,7 +53,9 @@ body.intro-locked {
 }
 
 .envelope-intro__inner {
-  width: min(90vw, 620px);
+  /* Third term: max width so the 320:625 artboard fits within viewport height. */
+  /* clamp(2.5rem, 8vw, 5rem) = 2× the intro's vertical padding (top + bottom). */
+  width: min(90vw, 620px, calc((100svh - clamp(2.5rem, 8vw, 5rem)) * 320 / 625));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -187,13 +189,13 @@ body.intro-locked {
 
 .envelope-art__footer {
   position: absolute;
-  top: 74%;
+  top: 70%;
   left: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.15em;
+  gap: 0.3em;
   z-index: 4;
   pointer-events: none;
   user-select: none;
