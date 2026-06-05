@@ -8,9 +8,6 @@ const root = path.join(__dirname, '..');
 const sourcesDir = path.join(__dirname, 'envelope-sources');
 const outDir = path.join(root, 'public/assets/envelope');
 
-/** Dusty-rose wax ramp matched to site palette (--accent-deep, --accent, --bg-soft). */
-const WAX_GRADIENT = '#8f5d72-#b87b98-#e79bb8-#f4d2e0';
-
 const svgFiles = [
   ['Vector_49.svg', 'side-left.svg'],
   ['Vector_48.svg', 'side-right.svg'],
@@ -29,6 +26,9 @@ function prepareEnvelopeSvg(raw) {
 }
 
 function recolorWaxSeal() {
+  /** Dusty-rose wax ramp — wider tonal range preserves embossed relief. */
+  const WAX_GRADIENT = '#5a3744-#8f5d72-#e79bb8-#fdebf3';
+
   const src = path.join(sourcesDir, 'seal-wax-source.png');
   const out = path.join(outDir, 'seal-wax.png');
   const tmpA = path.join(outDir, '_seal_a.png');
@@ -39,15 +39,22 @@ function recolorWaxSeal() {
     throw new Error(`Missing wax seal source: ${src}`);
   }
 
+  // 1. Strip black background, keep alpha mask.
   execSync(
     `magick "${src}" -alpha on -fuzz 10% -transparent black "${tmpA}"`,
     { stdio: 'inherit' }
   );
-  execSync(`magick "${tmpA}" -alpha off -colorspace gray "${tmpG}"`, { stdio: 'inherit' });
+  // 2. Grayscale + normalize → full black-to-white range so relief survives CLUT.
+  execSync(
+    `magick "${tmpA}" -alpha off -colorspace gray -normalize "${tmpG}"`,
+    { stdio: 'inherit' }
+  );
+  // 3. Map through wider dusty-rose CLUT.
   execSync(
     `magick "${tmpG}" \\( -size 256x1 gradient:'${WAX_GRADIENT}' \\) -clut "${tmpC}"`,
     { stdio: 'inherit' }
   );
+  // 4. Restore alpha from step 1.
   execSync(
     `magick "${tmpC}" "${tmpA}" -compose CopyOpacity -composite "${out}"`,
     { stdio: 'inherit' }
