@@ -217,6 +217,32 @@ body.intro-locked {
   color: var(--env-ink);
 }
 
+.envelope-art__flourish {
+  display: block;
+  width: 38%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--env-line) 25%,
+    var(--env-line) 75%,
+    transparent
+  );
+  position: relative;
+  margin: 0.3em 0 0.1em;
+}
+
+.envelope-art__flourish::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  background: var(--env-line);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
 /* ---------- Hero ---------- */
 #hero {
   position: relative;
