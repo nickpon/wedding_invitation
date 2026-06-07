@@ -78,7 +78,7 @@ export function initHeroScene() {
     gsap.set(glassLeft, { x: -gap });
     gsap.set(glassRight, { x: gap });
     applyTilt(TILT * toast.t);
-    applyLevel(-40 * toast.t);
+    applyLevel(-40);
   };
 
   let fired = false;
