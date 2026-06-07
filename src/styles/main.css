@@ -789,7 +789,7 @@ body.intro-locked {
   line-height: 1.65;
   color: var(--text-soft);
   max-width: 640px;
-  margin: -1.5rem auto 3rem;
+  margin: 2rem auto 3rem;
 }
 
 .dress-code__layout {
@@ -839,48 +839,60 @@ body.intro-locked {
 
 .dress-code__palette {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(0.65rem, 2vw, 1rem);
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 3vw, 1.6rem);
 }
 
 .dress-swatch {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .dress-swatch__tile {
   position: relative;
+  width: min(100%, 96px);
   aspect-ratio: 1;
-  border-radius: 16px;
+  border-radius: 50%;
   background: var(--swatch);
-  box-shadow: 0 12px 24px rgba(77, 57, 32, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.55rem;
-  transition: transform 0.3s ease;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.06),
+    0 14px 40px color-mix(in srgb, var(--swatch) 42%, transparent),
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.22),
+    inset 0 1px 3px rgba(255, 255, 255, 0.28);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
+
 
 .dress-swatch:hover .dress-swatch__tile {
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.05);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.07),
+    0 22px 56px color-mix(in srgb, var(--swatch) 52%, transparent),
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.3),
+    inset 0 1px 3px rgba(255, 255, 255, 0.35);
 }
 
-.dress-swatch__inner {
-  width: 42%;
-  height: 42%;
-  border-radius: 6px;
-  background: var(--swatch-tint);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+.dress-swatch__name {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  text-align: center;
+  line-height: 1.35;
 }
 
-@media (max-width: 860px) {
+.dress-swatch__hex {
+  display: none;
+}
+
+@media (max-width: 480px) {
   .dress-code__palette {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 380px) {
-  .dress-code__palette {
-    grid-template-columns: 1fr 1fr;
+    gap: clamp(0.8rem, 4vw, 1.2rem);
   }
 }
 

@@ -86,9 +86,9 @@ function renderDressCode() {
       .map(
         (c) => `
       <article class="dress-swatch">
-        <div class="dress-swatch__tile" style="--swatch: ${c.hex}; --swatch-tint: ${c.tint}">
-          <span class="dress-swatch__inner"></span>
-        </div>
+        <div class="dress-swatch__tile" style="--swatch: ${c.hex}; --swatch-tint: ${c.tint}"></div>
+        <span class="dress-swatch__name">${c.name}</span>
+        <span class="dress-swatch__hex">${c.hex.toLowerCase()}</span>
       </article>`
       )
       .join('');
