@@ -4,14 +4,11 @@ const DRINK_OPTIONS = [
   { id: 'champagne', label: 'Шампанское' },
   { id: 'white-wine', label: 'Белое вино' },
   { id: 'red-wine', label: 'Красное вино' },
-  { id: 'cocktail', label: 'Коктейль' },
-  { id: 'whiskey', label: 'Виски' },
-  { id: 'vodka', label: 'Водка' },
-  { id: 'gin', label: 'Джин-тоник' },
   { id: 'soft', label: 'Безалкогольные' },
 ];
 
 const MEAL_OPTIONS = [
+  { id: 'bird', label: 'Птица' },
   { id: 'meat', label: 'Мясо' },
   { id: 'fish', label: 'Рыба' },
   { id: 'veggie', label: 'Вегетарианское' },
