@@ -1156,6 +1156,70 @@ body.intro-locked {
   }
 }
 
+/* ---------- Organizer contacts ---------- */
+.organizer {
+  padding: clamp(2.5rem, 8vw, 5rem) 1.5rem;
+  background: var(--bg);
+}
+
+.organizer__inner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.organizer__intro {
+  font-family: var(--font-head);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.8vw, 1.22rem);
+  line-height: 1.7;
+  color: var(--text-soft);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.organizer__rule {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-deep), transparent);
+  margin: 2rem auto;
+}
+
+.organizer__name {
+  font-family: var(--font-script);
+  font-size: clamp(2.4rem, 6vw, 3.2rem);
+  color: var(--accent-deep);
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+
+.organizer__phone {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-decoration: none;
+  margin-bottom: 1.8rem;
+  transition: color 0.2s;
+}
+
+.organizer__phone:hover {
+  color: var(--accent-deep);
+}
+
+.organizer__closing {
+  font-family: var(--font-head);
+  font-style: italic;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--text-soft);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
 /* ---------- Footer ---------- */
 .footer {
   text-align: center;
