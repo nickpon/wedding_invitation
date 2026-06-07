@@ -677,9 +677,8 @@ body.intro-locked {
 }
 
 .venue__address {
-  font-family: var(--font-head);
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
-  line-height: 1.4;
+  font-size: 1rem;
+  line-height: 1.5;
   color: var(--text);
 }
 
