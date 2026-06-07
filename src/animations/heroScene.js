@@ -88,7 +88,6 @@ export function initHeroScene() {
   gsap.set(scrollHint, { opacity: 1 });
 
   const resetHeroScene = () => {
-    window.scrollTo(0, 0);
     toast.t = 0;
     fired = false;
     applyToast();
@@ -139,6 +138,7 @@ export function initHeroScene() {
   return {
     playIntro() {
       requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
         gsap.set([glassLeft, glassRight], { opacity: 1 });
         resetHeroScene();
         ScrollTrigger.refresh();
