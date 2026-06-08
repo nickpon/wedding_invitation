@@ -85,14 +85,14 @@ export function initHeroScene() {
   let heroScrollTrigger;
   let sceneBuilt = false;
 
-  gsap.set(title, { opacity: 0, scale: 0.92, y: 26 });
+  gsap.set(title, { xPercent: -50, yPercent: -50, opacity: 0, scale: 0.92, y: 26 });
   gsap.set(scrollHint, { opacity: 1 });
 
   const resetHeroScene = () => {
     toast.t = 0;
     fired = false;
     applyToast();
-    gsap.set(title, { opacity: 0, scale: 0.92, y: 26 });
+    gsap.set(title, { xPercent: -50, yPercent: -50, opacity: 0, scale: 0.92, y: 26 });
     gsap.set(scrollHint, { opacity: 1 });
     if (heroScrollTrigger) {
       heroScrollTrigger.scroll(0);
@@ -134,8 +134,8 @@ export function initHeroScene() {
       .to([glassLeft, glassRight], { opacity: 0, ease: 'power1.out', duration: 0.16 }, 0.66)
       .fromTo(
         title,
-        { opacity: 0, scale: 0.92, y: 26 },
-        { opacity: 1, scale: 1, y: 0, ease: 'power2.out', duration: 0.24 },
+        { xPercent: -50, yPercent: -50, opacity: 0, scale: 0.92, y: 26 },
+        { xPercent: -50, yPercent: -50, opacity: 1, scale: 1, y: 0, ease: 'power2.out', duration: 0.24 },
         0.74
       );
 

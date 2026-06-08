@@ -829,8 +829,9 @@ body.intro-locked {
 }
 
 .dress-code__note p {
-  font-size: 1rem;
-  line-height: 1.65;
+  font-family: var(--font-head);
+  font-size: clamp(1.05rem, 2.8vw, 1.22rem);
+  line-height: 1.7;
   color: var(--text);
   margin-top: 0.55rem;
 }
