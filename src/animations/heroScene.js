@@ -83,6 +83,7 @@ export function initHeroScene() {
 
   let fired = false;
   let heroScrollTrigger;
+  let sceneBuilt = false;
 
   gsap.set(title, { opacity: 0, scale: 0.92, y: 26 });
   gsap.set(scrollHint, { opacity: 1 });
@@ -100,48 +101,54 @@ export function initHeroScene() {
     ScrollTrigger.update();
   };
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      id: 'hero-scene',
-      trigger: hero,
-      start: 'top top',
-      end: '+=240%',
-      pin: '.hero-stage',
-      scrub: 0.8,
-      invalidateOnRefresh: true,
-      onUpdate: (self) => {
-        // One-shot clink the moment the rims meet; resettable when scrubbing up.
-        if (self.progress > 0.52 && !fired) {
-          fired = true;
-          collide();
-        } else if (self.progress < 0.42) {
-          fired = false;
-        }
+  // Deferred until playIntro so the pin is measured after body.intro-locked is
+  // removed — otherwise the pin captures position:fixed coordinates while the
+  // body is still overflow:hidden, which causes the hero to be horizontally
+  // displaced on mobile cold loads.
+  const buildScene = () => {
+    if (sceneBuilt) return;
+    sceneBuilt = true;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        id: 'hero-scene',
+        trigger: hero,
+        start: 'top top',
+        end: '+=240%',
+        pin: '.hero-stage',
+        scrub: 0.8,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          if (self.progress > 0.52 && !fired) {
+            fired = true;
+            collide();
+          } else if (self.progress < 0.42) {
+            fired = false;
+          }
+        },
       },
-    },
-  });
+    });
 
-  tl.to(scrollHint, { opacity: 0, ease: 'none', duration: 0.05 }, 0)
-    .to(toast, { t: 1, ease: 'power2.inOut', duration: 0.5, onUpdate: applyToast }, 0)
-    .to([glassLeft, glassRight], { opacity: 0, ease: 'power1.out', duration: 0.16 }, 0.66)
-    .fromTo(
-      title,
-      { opacity: 0, scale: 0.92, y: 26 },
-      { opacity: 1, scale: 1, y: 0, ease: 'power2.out', duration: 0.24 },
-      0.74
-    );
+    tl.to(scrollHint, { opacity: 0, ease: 'none', duration: 0.05 }, 0)
+      .to(toast, { t: 1, ease: 'power2.inOut', duration: 0.5, onUpdate: applyToast }, 0)
+      .to([glassLeft, glassRight], { opacity: 0, ease: 'power1.out', duration: 0.16 }, 0.66)
+      .fromTo(
+        title,
+        { opacity: 0, scale: 0.92, y: 26 },
+        { opacity: 1, scale: 1, y: 0, ease: 'power2.out', duration: 0.24 },
+        0.74
+      );
 
-  ScrollTrigger.refresh();
-  heroScrollTrigger = ScrollTrigger.getById('hero-scene');
-  resetHeroScene();
+    heroScrollTrigger = ScrollTrigger.getById('hero-scene');
+  };
 
   return {
     playIntro() {
       requestAnimationFrame(() => {
         window.scrollTo(0, 0);
         gsap.set([glassLeft, glassRight], { opacity: 1 });
+        buildScene();
         resetHeroScene();
-        ScrollTrigger.refresh();
       });
     },
   };
