@@ -1014,6 +1014,19 @@ body.intro-locked {
   width: 100%;
 }
 
+.rsvp__legend--with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.rsvp__legend-icon {
+  width: 1.15em;
+  height: 1.15em;
+  color: var(--accent-deep);
+  flex-shrink: 0;
+}
+
 .rsvp__hint {
   font-size: 0.88rem;
   color: var(--text-soft);

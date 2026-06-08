@@ -40,7 +40,7 @@ function setAttendingState(form, attending) {
   const isYes = attending === 'yes';
   details.classList.toggle('rsvp__details--hidden', !isYes);
   details.querySelectorAll('input, textarea, select').forEach((el) => {
-    if (el.name === 'meal' || el.name === 'drinks') {
+    if (el.name === 'meal' || el.name === 'drinks' || el.name === 'transfer') {
       el.required = isYes && el.type === 'radio';
     } else if (el.id === 'rsvp-name') {
       el.required = true;
@@ -64,6 +64,7 @@ function collectPayload(form) {
     name: (fd.get('name') || '').trim(),
     drinks: attending === 'yes' ? drinks : [],
     meal: attending === 'yes' ? fd.get('meal') || '' : '',
+    transfer: attending === 'yes' ? (fd.get('transfer') === 'yes' ? 'Нужен' : 'Не нужен') : '',
     allergies: (fd.get('allergies') || '').trim(),
     comment: (fd.get('comment') || '').trim(),
     submittedAt: new Date().toISOString(),
@@ -77,11 +78,14 @@ function validate(form, attending) {
   }
   if (attending !== 'yes') return null;
 
-  const meal = form.querySelector('input[name="meal"]:checked');
-  if (!meal) return 'Выберите, пожалуйста, основное блюдо.';
+  const transfer = form.querySelector('input[name="transfer"]:checked');
+  if (!transfer) return 'Подскажите, пожалуйста, нужен ли вам трансфер.';
 
   const drinks = form.querySelectorAll('input[name="drinks"]:checked');
   if (drinks.length === 0) return 'Отметьте хотя бы один напиток (или «Безалкогольные напитки»).';
+
+  const meal = form.querySelector('input[name="meal"]:checked');
+  if (!meal) return 'Выберите, пожалуйста, основное блюдо.';
 
   return null;
 }

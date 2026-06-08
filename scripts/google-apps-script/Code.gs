@@ -35,9 +35,22 @@ function createSheetHeader() {
     'Блюдо',
     'Аллергии',
     'Комментарий',
+    'Трансфер',
   ]);
-  sheet.getRange(1, 1, 1, 7).setFontWeight('bold');
+  sheet.getRange(1, 1, 1, 8).setFontWeight('bold');
   sheet.setFrozenRows(1);
+}
+
+/**
+ * Run once after upgrading — adds the "Трансфер" header to column H
+ * without clearing existing rows.
+ */
+function addTransferColumn() {
+  const sheet = getSheet_();
+  if (sheet.getRange(1, 8).getValue() !== 'Трансфер') {
+    sheet.getRange(1, 8).setValue('Трансфер');
+    sheet.getRange(1, 1, 1, 8).setFontWeight('bold');
+  }
 }
 
 function jsonResponse_(obj) {
@@ -68,6 +81,7 @@ function doPost(e) {
       data.meal || '',
       data.allergies || '',
       data.comment || '',
+      data.transfer || '',
     ]);
 
     return jsonResponse_({ ok: true });

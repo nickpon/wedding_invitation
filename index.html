@@ -234,6 +234,30 @@
 
           <div class="rsvp__details">
             <fieldset class="rsvp__group">
+              <legend class="rsvp__legend rsvp__legend--with-icon">
+                <svg class="rsvp__legend-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="11" rx="2"/>
+                  <path d="M3 11h18"/>
+                  <circle cx="7.5" cy="18" r="1.5"/>
+                  <circle cx="16.5" cy="18" r="1.5"/>
+                  <path d="M6 16v1.5M18 16v1.5"/>
+                </svg>
+                <span>Понадобится ли вам трансфер?</span>
+              </legend>
+              <p class="rsvp__hint">Для всех желающих мы организуем бесплатный трансфер из Москвы и обратно</p>
+              <div class="rsvp__row rsvp__row--attend">
+                <label class="rsvp__chip rsvp__chip--radio">
+                  <input type="radio" name="transfer" value="yes" />
+                  <span>Да</span>
+                </label>
+                <label class="rsvp__chip rsvp__chip--radio">
+                  <input type="radio" name="transfer" value="no" />
+                  <span>Нет, доберусь самостоятельно</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="rsvp__group">
               <legend class="rsvp__legend">Предпочитаемые напитки</legend>
               <p class="rsvp__hint">Можно выбрать несколько вариантов</p>
               <div class="rsvp__chips" id="rsvp-drinks"></div>
