@@ -4,7 +4,8 @@ const DRINK_OPTIONS = [
   { id: 'champagne', label: 'Шампанское' },
   { id: 'white-wine', label: 'Белое вино' },
   { id: 'red-wine', label: 'Красное вино' },
-  { id: 'soft', label: 'Безалкогольные' },
+  { id: 'spirits', label: 'Крепкие напитки' },
+  { id: 'soft', label: 'Безалкогольные напитки' },
 ];
 
 const MEAL_OPTIONS = [
@@ -80,7 +81,7 @@ function validate(form, attending) {
   if (!meal) return 'Выберите, пожалуйста, основное блюдо.';
 
   const drinks = form.querySelectorAll('input[name="drinks"]:checked');
-  if (drinks.length === 0) return 'Отметьте хотя бы один напиток (или «Безалкогольные»).';
+  if (drinks.length === 0) return 'Отметьте хотя бы один напиток (или «Безалкогольные напитки»).';
 
   return null;
 }
