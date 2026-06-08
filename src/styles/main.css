@@ -359,7 +359,7 @@ body.intro-locked {
   font-family: var(--font-body);
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  font-size: clamp(0.9rem, 2.6vw, 1.2rem);
   color: var(--accent-deep);
   margin-bottom: 0.6rem;
 }
@@ -406,12 +406,12 @@ body.intro-locked {
 .datemark__plaques {
   display: flex;
   align-items: center;
-  gap: clamp(0.35rem, 1.2vw, 0.65rem);
+  gap: clamp(0.5rem, 1.6vw, 0.9rem);
 }
 
 .datemark__plaque {
-  min-width: clamp(3.2rem, 11vw, 4.6rem);
-  padding: 0.35rem 0.55rem 0.45rem;
+  min-width: clamp(4.2rem, 14vw, 6.4rem);
+  padding: 0.4rem 0.65rem 0.55rem;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.55);
@@ -422,14 +422,14 @@ body.intro-locked {
 .datemark__plaque span {
   font-family: var(--font-head);
   font-weight: 600;
-  font-size: clamp(1.9rem, 6.5vw, 3.2rem);
+  font-size: clamp(2.8rem, 9.5vw, 5rem);
   line-height: 1;
   color: var(--text);
   letter-spacing: 0.04em;
 }
 
 .datemark__bridge {
-  width: clamp(14px, 4vw, 28px);
+  width: clamp(16px, 4.5vw, 34px);
   height: 1px;
   background: linear-gradient(90deg, var(--accent), var(--gold), var(--accent));
   position: relative;
@@ -464,7 +464,7 @@ body.intro-locked {
 
 .datemark__year {
   font-weight: 600;
-  font-size: clamp(1.25rem, 3.8vw, 1.75rem);
+  font-size: clamp(1.6rem, 4.8vw, 2.4rem);
   color: var(--text);
   letter-spacing: 0.12em;
 }
@@ -474,7 +474,7 @@ body.intro-locked {
   font-family: var(--font-body);
   letter-spacing: 0.42em;
   text-transform: uppercase;
-  font-size: clamp(0.62rem, 1.8vw, 0.8rem);
+  font-size: clamp(0.8rem, 2.2vw, 1rem);
   color: var(--text-soft);
   padding-left: 0.42em;
 }
