@@ -1239,6 +1239,30 @@ body.intro-locked {
   color: var(--accent-deep);
 }
 
+.organizer__telegram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-decoration: none;
+  margin-bottom: 1.8rem;
+  transition: color 0.2s;
+}
+
+.organizer__telegram:hover {
+  color: var(--accent-deep);
+}
+
+.organizer__telegram-icon {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+}
+
 .organizer__closing {
   font-family: var(--font-head);
   font-style: italic;
